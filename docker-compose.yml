@@ -5,7 +5,9 @@ services:
       context: .
       dockerfile: ./docker/jupyter/Dockerfile
     volumes:
-      - ./work:/home/jovyan/work
+      - work:/work
+      - /Users/Puneet89/scratch/flexograph-eval/results:/results
     ports:
       - 8888:8888
-    command: "start-notebook.sh --NotebookApp.token="
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
